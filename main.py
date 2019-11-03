@@ -1,5 +1,9 @@
 import requests
 
+# For unauthenticated requests, the rate limit allows for up to 60 requests per
+# hour. Unauthenticated requests are associated with the originating IP address,
+# and not the user making requests.
+
 # Detailed representations
 repo_url = 'https://api.github.com/repos/psf/requests'
 request_headers = {'Accept': 'application/vnd.github.v3+json'}
@@ -21,10 +25,16 @@ request_headers = {'Accept': 'application/vnd.github.v3+json'}
 # # List languages, counted by Bytes
 # response = requests.get(repo_url+'/languages', headers=request_headers)
 
-# List tags, git tags
-response = requests.get(repo_url+'/tags', headers=request_headers)
-# Link →<https://api.github.com/repositories/1362490/tags?page=2>; rel="next", <https://api.github.com/repositories/1362490/tags?page=5>; rel="last"
+# # List tags, git tags
+# response = requests.get(repo_url+'/tags', headers=request_headers)
+# # Link →<https://api.github.com/repositories/1362490/tags?page=2>; rel="next", <https://api.github.com/repositories/1362490/tags?page=5>; rel="last"
 
+# # List branches, including protected branches
+# response = requests.get(repo_url+'/branches', headers=request_headers)
+
+# List commit comments for a repository, ordered by ascending ID
+response = requests.get(repo_url+'/comments', headers=request_headers)
+# Link →<https://api.github.com/repositories/1362490/comments?page=2>; rel="next", <https://api.github.com/repositories/1362490/comments?page=12>; rel="last"
 
 print(response.json())
 # print(response.headers)
