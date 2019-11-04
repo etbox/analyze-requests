@@ -71,9 +71,15 @@ GitHub OAuth 2.0 授權流程如下：
 
 Postman 可以直接用上述取得的 Access Token 發請求，不過 Postman 也做了授權功能。
 只需要填上對應的信息，並開啟服務器（以接收回調的 Authorization Code）即可自動取得新的 Access Token。
-新的 Access Token 不會覆蓋先前的 Access Token，就像 Session ID 一樣，同一位用戶在多個瀏覽器都能保存登錄信息。
 
 ![postman-authenticate.jpg](material/postman-authenticate.jpg)
+
+新的 Access Token 不會覆蓋先前的 Access Token，就像 Session ID 一樣，同一位用戶在多個瀏覽器都能保存登錄信息。
+按說 Access Token 是隱私信息，不應寫死在代碼中，而應讓每個用戶生成自己的 Access Token。
+本項目為減少額外工作量，將已經取得的 Access Token 寫死在代碼中。
+由於 Github 的 Access Token 永不過期，必須手動吊銷 tokens，本項目所使用的 OAuth App 將於 2019/11/11 吊銷所有 tokens。
+
+![oauth-app.jpg](material/oauth-app.jpg)
 
 # 參考鏈接
 

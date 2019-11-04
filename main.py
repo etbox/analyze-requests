@@ -6,7 +6,10 @@ import requests
 
 # Detailed representations
 repo_url = 'https://api.github.com/repos/psf/requests'
-request_headers = {'Accept': 'application/vnd.github.v3+json'}
+request_headers = {
+    'Accept': 'application/vnd.github.v3+json',
+    'Authorization': 'token 6ec853de8d82b9d3950fe8ae12cd03139f6cca3e'
+}
 # response = requests.get(repo_url, headers=request_headers)
 
 # # List all topics for a repository, github #topics
