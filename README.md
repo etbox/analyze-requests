@@ -47,7 +47,7 @@ github 會對未取得授權的請求進行限制，根據 IP 地址每小時只
 
 ![authenticated-request.jpg](material/authenticated-request.jpg)
 
-取得授權后每小時可以請求 5000 次。
+取得授權后，根據授權取得的 Access Token 每小時可以請求 5000 次。
 
 ### 取得授權詳細操作
 
@@ -69,7 +69,9 @@ GitHub OAuth 2.0 授權流程如下：
 5. 再利用 Client ID、 Client Secret 和 Authorization Code 發請求取得 Access Token
 6. 以後每次請求都在頭部加入 Access Token 即可
 
-Postman 不能直接用上述取得的 Access Token，需要單獨請求一次授權。不過好在 Postman 已經做了授權功能，只需要填上對應的信息，並開啟服務器（以接收回調的 Authorization Code）即可自動取得 Access Token。
+Postman 可以直接用上述取得的 Access Token 發請求，不過 Postman 也做了授權功能。
+只需要填上對應的信息，並開啟服務器（以接收回調的 Authorization Code）即可自動取得新的 Access Token。
+新的 Access Token 不會覆蓋先前的 Access Token，就像 Session ID 一樣，同一位用戶在多個瀏覽器都能保存登錄信息。
 
 ![postman-authenticate.jpg](material/postman-authenticate.jpg)
 
