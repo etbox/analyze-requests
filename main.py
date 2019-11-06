@@ -1,16 +1,11 @@
-# import requests
-from utils.fetch import fetch
+from utils.getters import fetch
+from utils.getters import fetchTopics
 
-# Detailed representations
-# repo_url = 'https://api.github.com/repos/psf/requests'
-# request_headers = {
-#     'Accept': 'application/vnd.github.v3+json',
-# }
-# response = requests.get(repo_url, headers=request_headers)
+# # Detailed representations
+# response = fetch()
 
-# # List all topics for a repository, github #topics
-# request_headers = {'Accept': 'application/vnd.github.mercy-preview+json'}
-# response = requests.get(repo_url+'/topics', headers=request_headers)
+# List all topics for a repository, github #topics
+response = fetchTopics()
 
 # # List contributors
 # response = requests.get(repo_url+'/contributors', headers=request_headers)
@@ -35,6 +30,5 @@ from utils.fetch import fetch
 # response = requests.get(repo_url+'/comments', headers=request_headers)
 # Link →<https://api.github.com/repositories/1362490/comments?page=2>; rel="next", <https://api.github.com/repositories/1362490/comments?page=12>; rel="last"
 
-response = fetch()
 print(response.json())
 # print(response.headers)
