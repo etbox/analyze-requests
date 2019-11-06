@@ -1,11 +1,11 @@
-import requests
+# import requests
+from utils.fetch import fetch
 
 # Detailed representations
-repo_url = 'https://api.github.com/repos/psf/requests'
-request_headers = {
-    'Accept': 'application/vnd.github.v3+json',
-    'Authorization': 'token 6ec853de8d82b9d3950fe8ae12cd03139f6cca3e'
-}
+# repo_url = 'https://api.github.com/repos/psf/requests'
+# request_headers = {
+#     'Accept': 'application/vnd.github.v3+json',
+# }
 # response = requests.get(repo_url, headers=request_headers)
 
 # # List all topics for a repository, github #topics
@@ -32,8 +32,9 @@ request_headers = {
 # response = requests.get(repo_url+'/branches', headers=request_headers)
 
 # List commit comments for a repository, ordered by ascending ID
-response = requests.get(repo_url+'/comments', headers=request_headers)
+# response = requests.get(repo_url+'/comments', headers=request_headers)
 # Link →<https://api.github.com/repositories/1362490/comments?page=2>; rel="next", <https://api.github.com/repositories/1362490/comments?page=12>; rel="last"
 
+response = fetch()
 print(response.json())
 # print(response.headers)
