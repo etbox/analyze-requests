@@ -1,11 +1,14 @@
 from utils.getters import fetch
 from utils.getters import fetchTopics
 
+from utils.setters import save
+
 # # Detailed representations
 # response = fetch()
 
 # List all topics for a repository, github #topics
 response = fetchTopics()
+save(response.json(), 'topics.json')
 
 # # List contributors
 # response = requests.get(repo_url+'/contributors', headers=request_headers)
