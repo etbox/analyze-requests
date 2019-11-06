@@ -76,10 +76,18 @@ Postman 可以直接用上述取得的 Access Token 發請求，不過 Postman �
 
 新的 Access Token 不會覆蓋先前的 Access Token，就像 Session ID 一樣，同一位用戶在多個瀏覽器都能保存登錄信息。
 按說 Access Token 是隱私信息，不應寫死在代碼中，而應讓每個用戶生成自己的 Access Token。
-本項目為減少額外工作量，將已經取得的 Access Token 寫死在代碼中。
-由於 Github 的 Access Token 永不過期，必須手動吊銷 tokens，本項目所使用的 OAuth App 將於 2019/11/11 吊銷所有 tokens。
+~~本項目為減少額外工作量，將已經取得的 Access Token 寫死在代碼中。~~
+由於 Github 的 Access Token 永不過期，必須手動吊銷 tokens，~~本項目所使用的 OAuth App 將於 2019/11/11 吊銷所有 tokens。~~
 
 ![oauth-app.jpg](material/oauth-app.jpg)
+
+將 Access Token 推送到 Github 後，GitGuardian 發郵件警告我洩露了 Token。
+於是立即 Revoke all user tokens，令 Github 上剛剛推送的 Access Token 失效。
+萬幸的是服務器的代碼不需要更改，用戶只需重新授權即可。
+為保證請求授權的代碼不洩露，在 Github 上新建一個私有倉庫，並將服務器代碼推送到該私有倉庫上。
+
+![warning.jpg](material/warning.jpg)
+
 
 # 參考鏈接
 
@@ -92,3 +100,5 @@ Postman 可以直接用上述取得的 Access Token 發請求，不過 Postman �
 [Google 开源项目 Python 风格规范](https://zh-google-styleguide.readthedocs.io/en/latest/google-python-styleguide/python_style_rules)
 
 [GitHub OAuth 第三方登录示例教程](http://www.ruanyifeng.com/blog/2019/04/github-oauth.html)
+
+[APISecurityBestPractices](https://github.com/GitGuardian/APISecurityBestPractices)

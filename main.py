@@ -1,9 +1,5 @@
 import requests
 
-# For unauthenticated requests, the rate limit allows for up to 60 requests per
-# hour. Unauthenticated requests are associated with the originating IP address,
-# and not the user making requests.
-
 # Detailed representations
 repo_url = 'https://api.github.com/repos/psf/requests'
 request_headers = {
