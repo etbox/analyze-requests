@@ -38,6 +38,7 @@ github 會通過 page 參數進行數據分頁處理，總頁數信息會放在�
 >   <https://api.github.com/user/repos?page=50&per_page=100>; rel="last"
 
 在請求某些大數據量的接口時，要先發送一次請求以獲取分頁信息，通過正則表達式提取頁數再進行下一次請求。
+注意，後續的請求用循環比較好，因為便於 debug，遞歸難以 debug。
 
 ## 請求次數限制
 

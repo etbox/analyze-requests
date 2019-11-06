@@ -6,13 +6,13 @@ from utils.setters import save
 # # Detailed representations
 # response = fetch()
 
-# List all topics for a repository, github #topics
-response = fetchTopics()
-save(response.json(), 'topics.json')
+# # List all topics for a repository, github #topics
+# response = fetchTopics()
+# save(response.json(), 'topics.json')
 
-# # List contributors
-# response = requests.get(repo_url+'/contributors', headers=request_headers)
-# # Link →<https://api.github.com/repositories/1362490/contributors?page=2>; rel="next", <https://api.github.com/repositories/1362490/contributors?page=14>; rel="last"
+# List contributors
+response = fetch('/contributors')
+# Link →<https://api.github.com/repositories/1362490/contributors?page=2>; rel="next", <https://api.github.com/repositories/1362490/contributors?page=14>; rel="last"
 
 # # List contributors, including anonymous contributors in results.
 # response = requests.get(repo_url+'/contributors?anon=1',
