@@ -1,4 +1,6 @@
 import requests
+import re
+import json
 
 token = '455267bfe73cfa83b878b9336820df4f18e59b5b'
 
@@ -9,9 +11,11 @@ def baseFetch(path='', request_headers={
 }):
 
     def closure():
-        repo_url = 'https://api.github.com/repos/psf/requests'+path
+        found_full_url = re.findall(r'api.github.com', path)
+        url = 'https://api.github.com/repos/psf/requests' + \
+            path if len(found_full_url) == 0 else path
 
-        response = requests.get(repo_url, headers=request_headers)
+        response = requests.get(url, headers=request_headers)
         return response
 
     return closure()
@@ -23,3 +27,25 @@ def fetch(path=''):
 
 def fetchTopics():
     return baseFetch('/topics', {'Accept': 'application/vnd.github.mercy-preview+json'})
+
+
+def fetchPagination(path=''):
+    first_response = baseFetch(path)
+    result_json = first_response.json()
+    first_link = first_response.headers['link']
+    pagination_info = re.findall(r'<(https://.+?)>;\srel="(\w+)"', first_link)
+
+    # last_page_info = [item for item in pagination_info if item[1] == 'last']
+    next_page_info = [item for item in pagination_info if item[1] == 'next']
+
+    while len(next_page_info) != 0:
+        # To check whether is fetching
+        print(next_page_info[0][0])
+        response = baseFetch(next_page_info[0][0])
+        result_json = result_json + response.json()
+        pagination_info = re.findall(
+            r'<(https://.+?)>;\srel="(\w+)"', response.headers['link'])
+        next_page_info = [
+            item for item in pagination_info if item[1] == 'next']
+
+    return result_json

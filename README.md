@@ -89,6 +89,7 @@ Postman 可以直接用上述取得的 Access Token 發請求，不過 Postman �
 
 ![warning.jpg](material/warning.jpg)
 
+再用 python 寫一遍服務器太麻煩了，還是按照原定計劃推送 Access Token，讓後定時吊銷。
 
 # 參考鏈接
 

@@ -1,5 +1,6 @@
 from utils.getters import fetch
 from utils.getters import fetchTopics
+from utils.getters import fetchPagination
 
 from utils.setters import save
 
@@ -7,17 +8,16 @@ from utils.setters import save
 # response = fetch()
 
 # # List all topics for a repository, github #topics
-# response = fetchTopics()
-# save(response.json(), 'topics.json')
+# topics = fetchTopics()
+# save(topics.json(), 'topics.json')
 
-# List contributors
-response = fetch('/contributors')
-# Link →<https://api.github.com/repositories/1362490/contributors?page=2>; rel="next", <https://api.github.com/repositories/1362490/contributors?page=14>; rel="last"
+# # List contributors, exclude anonymous contributors
+# contributors = fetchPagination('/contributors')
+# save(contributors, 'contributors.json')
 
 # # List contributors, including anonymous contributors in results.
-# response = requests.get(repo_url+'/contributors?anon=1',
-#                         headers=request_headers)
-# #Link →<https://api.github.com/repositories/1362490/contributors?anon=1&page=2>; rel="next", <https://api.github.com/repositories/1362490/contributors?anon=1&page=22>; rel="last"
+# anon_contributors = fetchPagination('/contributors?anon=true')
+# save(anon_contributors, 'anon_contributors.json')
 
 # # List languages, counted by Bytes
 # response = requests.get(repo_url+'/languages', headers=request_headers)
@@ -33,5 +33,5 @@ response = fetch('/contributors')
 # response = requests.get(repo_url+'/comments', headers=request_headers)
 # Link →<https://api.github.com/repositories/1362490/comments?page=2>; rel="next", <https://api.github.com/repositories/1362490/comments?page=12>; rel="last"
 
-print(response.json())
-# print(response.headers)
+# print(len(response))
+# print(response.headers['link'])
