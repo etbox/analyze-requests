@@ -10,4 +10,6 @@ def save(data={}, file_name='data.json'):
         # Move the json file to data directory
         old_path = os.path.join(os.getcwd(), file_name)
         new_path = os.path.join(os.getcwd(), 'data/'+file_name)
-        shutil.move(old_path, new_path)
+
+    # Prevent permissionError
+    shutil.move(old_path, new_path)

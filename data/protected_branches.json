@@ -1,0 +1,18 @@
+[
+    {
+        "name": "master",
+        "commit": {
+            "sha": "d2590ee46c0641958b6d4792a206bd5171cb247d",
+            "url": "https://api.github.com/repos/psf/requests/commits/d2590ee46c0641958b6d4792a206bd5171cb247d"
+        },
+        "protected": true
+    },
+    {
+        "name": "proposed/3.0.0",
+        "commit": {
+            "sha": "9c6bd54b44c0b05c6907522e8d9998a87b69c1cd",
+            "url": "https://api.github.com/repos/psf/requests/commits/9c6bd54b44c0b05c6907522e8d9998a87b69c1cd"
+        },
+        "protected": true
+    }
+]

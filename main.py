@@ -20,18 +20,23 @@ from utils.setters import save
 # save(anon_contributors, 'anon_contributors.json')
 
 # # List languages, counted by Bytes
-# response = requests.get(repo_url+'/languages', headers=request_headers)
+# languages = fetch('/languages')
+# save(languages.json(), 'languages.json')
 
 # # List tags, git tags
-# response = requests.get(repo_url+'/tags', headers=request_headers)
-# # Link →<https://api.github.com/repositories/1362490/tags?page=2>; rel="next", <https://api.github.com/repositories/1362490/tags?page=5>; rel="last"
+# tags = fetchPagination('/tags')
+# save(tags, 'tags.json')
+
+# # List branches, excluding protected branches
+# branches = fetch('/branches')
+# save(branches.json(), 'branches.json')
 
 # # List branches, including protected branches
-# response = requests.get(repo_url+'/branches', headers=request_headers)
+# protected_branches = fetch('/branches?protected=true')
+# save(protected_branches.json(), 'protected_branches.json')
 
-# List commit comments for a repository, ordered by ascending ID
-# response = requests.get(repo_url+'/comments', headers=request_headers)
-# Link →<https://api.github.com/repositories/1362490/comments?page=2>; rel="next", <https://api.github.com/repositories/1362490/comments?page=12>; rel="last"
+# # List commit comments for a repository, ordered by ascending ID
+# comments = fetchPagination('/comments')
 
 # print(len(response))
 # print(response.headers['link'])
