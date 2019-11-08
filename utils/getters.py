@@ -15,7 +15,9 @@ def fetch(path='', request_headers={
     return response
 
 
-def fetchPagination(path, request_headers):
+def fetchPagination(path='', request_headers={
+    'Accept': 'application/vnd.github.v3+json',
+}):
     first_response = fetch(path, request_headers)
     result_json = first_response.json()
     first_link = first_response.headers['link']
