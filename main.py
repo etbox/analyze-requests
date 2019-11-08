@@ -50,8 +50,12 @@ from utils.setters import save
 # commits = fetchPagination('/commits')
 # save(commits, 'commits.json')
 
-# Retrieve community profile metrics
-community = fetch('/community/profile', {
-    'Accept': 'application/vnd.github.black-panther-preview+json'
-})
-save(community.json(), 'community.json')
+# # Retrieve community profile metrics
+# community = fetch('/community/profile', {
+#     'Accept': 'application/vnd.github.black-panther-preview+json'
+# })
+# save(community.json(), 'community.json')
+
+# List all issues for a repository
+issues = fetchPagination('/issues?state=all')
+save(issues, 'issues.json')
