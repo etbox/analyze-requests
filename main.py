@@ -56,6 +56,10 @@ from utils.setters import save
 # })
 # save(community.json(), 'community.json')
 
-# List all issues for a repository
-issues = fetchPagination('/issues?state=all')
-save(issues, 'issues.json')
+# # List all issues for a repository
+# issues = fetchPagination('/issues?state=all')
+# save(issues, 'issues.json')
+
+# List all pull requests
+pulls = fetchPagination('/pulls')
+save(pulls, 'pulls.json')
