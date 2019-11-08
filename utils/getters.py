@@ -2,35 +2,21 @@ import requests
 import re
 import json
 
-token = '455267bfe73cfa83b878b9336820df4f18e59b5b'
 
-
-def baseFetch(path='', request_headers={
+def fetch(path='', request_headers={
     'Accept': 'application/vnd.github.v3+json',
-    'Authorization': 'token {}'.format(token)
 }):
+    found_full_url = re.findall(r'api.github.com', path)
+    url = 'https://api.github.com/repos/psf/requests' + \
+        path if len(found_full_url) == 0 else path
+    request_headers['Authorization'] = 'token 455267bfe73cfa83b878b9336820df4f18e59b5b'
 
-    def closure():
-        found_full_url = re.findall(r'api.github.com', path)
-        url = 'https://api.github.com/repos/psf/requests' + \
-            path if len(found_full_url) == 0 else path
-
-        response = requests.get(url, headers=request_headers)
-        return response
-
-    return closure()
+    response = requests.get(url, headers=request_headers)
+    return response
 
 
-def fetch(path=''):
-    return baseFetch(path)
-
-
-def fetchTopics():
-    return baseFetch('/topics', {'Accept': 'application/vnd.github.mercy-preview+json'})
-
-
-def fetchPagination(path=''):
-    first_response = baseFetch(path)
+def fetchPagination(path, request_headers):
+    first_response = fetch(path, request_headers)
     result_json = first_response.json()
     first_link = first_response.headers['link']
     pagination_info = re.findall(r'<(https://.+?)>;\srel="(\w+)"', first_link)
@@ -41,7 +27,7 @@ def fetchPagination(path=''):
     while len(next_page_info) != 0:
         # To check whether is fetching
         print(next_page_info[0][0])
-        response = baseFetch(next_page_info[0][0])
+        response = fetch(next_page_info[0][0], request_headers)
         result_json = result_json + response.json()
         pagination_info = re.findall(
             r'<(https://.+?)>;\srel="(\w+)"', response.headers['link'])

@@ -1,5 +1,4 @@
 from utils.getters import fetch
-from utils.getters import fetchTopics
 from utils.getters import fetchPagination
 
 from utils.setters import save
@@ -8,7 +7,9 @@ from utils.setters import save
 # response = fetch()
 
 # # List all topics for a repository, github #topics
-# topics = fetchTopics()
+# topics = fetch('/topics', {
+#     'Accept': 'application/vnd.github.mercy-preview+json'
+# })
 # save(topics.json(), 'topics.json')
 
 # # List contributors, exclude anonymous contributors
@@ -35,9 +36,6 @@ from utils.setters import save
 # protected_branches = fetch('/branches?protected=true')
 # save(protected_branches.json(), 'protected_branches.json')
 
-# List commit comments for a repository, ordered by ascending ID
-comments = fetchPagination('/comments')
-save(comments, 'comments.json')
-
-# print(len(response))
-# print(response.headers['link'])
+# # List commit comments for a repository, ordered by ascending ID
+# comments = fetchPagination('/comments')
+# save(comments, 'comments.json')
