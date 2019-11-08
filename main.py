@@ -35,8 +35,9 @@ from utils.setters import save
 # protected_branches = fetch('/branches?protected=true')
 # save(protected_branches.json(), 'protected_branches.json')
 
-# # List commit comments for a repository, ordered by ascending ID
-# comments = fetchPagination('/comments')
+# List commit comments for a repository, ordered by ascending ID
+comments = fetchPagination('/comments')
+save(comments, 'comments.json')
 
 # print(len(response))
 # print(response.headers['link'])
