@@ -40,8 +40,12 @@ from utils.setters import save
 # comments = fetchPagination('/comments')
 # save(comments, 'comments.json')
 
-# List commit comments for a repository with reactions summary, ordered by ascending ID
-reaction_comments = fetchPagination('/comments', {
-    'Accept': 'application/vnd.github.squirrel-girl-preview',
-})
-save(reaction_comments, 'reaction_comments.json')
+# # List commit comments for a repository with reactions summary, ordered by ascending ID
+# reaction_comments = fetchPagination('/comments', {
+#     'Accept': 'application/vnd.github.squirrel-girl-preview',
+# })
+# save(reaction_comments, 'reaction_comments.json')
+
+# List commits on a repository, from new to old
+commits = fetchPagination('/commits')
+save(commits, 'commits.json')
