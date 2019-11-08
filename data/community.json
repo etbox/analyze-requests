@@ -1,0 +1,35 @@
+{
+    "health_percentage": 100,
+    "description": "A simple, yet elegant HTTP library.",
+    "documentation": "https://requests.readthedocs.io",
+    "files": {
+        "code_of_conduct": {
+            "key": "other",
+            "name": "Other",
+            "html_url": "https://github.com/psf/requests/blob/master/CODE_OF_CONDUCT.md",
+            "url": "https://api.github.com/repos/psf/requests/community/code_of_conduct"
+        },
+        "contributing": {
+            "url": "https://api.github.com/repos/psf/requests/contents/CONTRIBUTING.md",
+            "html_url": "https://github.com/psf/requests/blob/master/CONTRIBUTING.md"
+        },
+        "issue_template": {
+            "url": "https://api.github.com/repos/psf/requests/contents/.github/ISSUE_TEMPLATE.md",
+            "html_url": "https://github.com/psf/requests/blob/master/.github/ISSUE_TEMPLATE.md"
+        },
+        "pull_request_template": null,
+        "license": {
+            "key": "other",
+            "name": "Other",
+            "spdx_id": "NOASSERTION",
+            "url": null,
+            "node_id": "MDc6TGljZW5zZTA=",
+            "html_url": "https://github.com/psf/requests/blob/master/LICENSE"
+        },
+        "readme": {
+            "url": "https://api.github.com/repos/psf/requests/contents/README.md",
+            "html_url": "https://github.com/psf/requests/blob/master/README.md"
+        }
+    },
+    "updated_at": "2019-02-04T15:23:12Z"
+}

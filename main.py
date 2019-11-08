@@ -46,6 +46,12 @@ from utils.setters import save
 # })
 # save(reaction_comments, 'reaction_comments.json')
 
-# List commits on a repository, from new to old
-commits = fetchPagination('/commits')
-save(commits, 'commits.json')
+# # List commits on a repository, from new to old
+# commits = fetchPagination('/commits')
+# save(commits, 'commits.json')
+
+# Retrieve community profile metrics
+community = fetch('/community/profile', {
+    'Accept': 'application/vnd.github.black-panther-preview+json'
+})
+save(community.json(), 'community.json')
